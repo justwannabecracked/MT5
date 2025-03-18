@@ -11,7 +11,10 @@ const authMiddleware = require("./middleware/auth");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = ["https://mt5.onrender.com", "http://localhost:3000"];
+const allowedOrigins = [
+  "https://mt5-p7v8.onrender.com",
+  "http://localhost:3000",
+];
 
 app.use(
   cors({
