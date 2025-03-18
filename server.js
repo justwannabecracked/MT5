@@ -163,7 +163,7 @@ app.get("/user", authMiddleware, async (req, res) => {
   }
 });
 
-app.get("/user-accounts/:userId", async (req, res) => {
+app.get("/user-accounts/:userId", authMiddleware, async (req, res) => {
   try {
     const { userId } = req.params;
     if (!userId) return res.status(400).send("User ID required");
@@ -178,7 +178,7 @@ app.get("/user-accounts/:userId", async (req, res) => {
   }
 });
 
-app.post("/start-monitoring/:userId", async (req, res) => {
+app.post("/start-monitoring/:userId", authMiddleware, async (req, res) => {
   try {
     const { userId } = req.params;
     if (!userId) return res.status(400).send("User ID required");
@@ -205,7 +205,7 @@ app.post("/start-monitoring/:userId", async (req, res) => {
   }
 });
 
-app.post("/add-account/:userId", async (req, res) => {
+app.post("/add-account/:userId", authMiddleware, async (req, res) => {
   try {
     const { userId } = req.params;
     if (!userId) return res.status(400).send("User ID required");
